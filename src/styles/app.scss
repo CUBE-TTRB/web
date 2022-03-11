@@ -1,17 +1,25 @@
 @use './base';
-@use './abstract';
+@use './abstract' as global;
 @import './theme';
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
-  color: $orange;
-  @include themed {
-    background-color: t("base3");
+
+
+
+
+html {
+
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  
+    background-color: global.$background-color;
+  
+  
   }
 }
+
 

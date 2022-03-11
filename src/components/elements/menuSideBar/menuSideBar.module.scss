@@ -1,0 +1,49 @@
+@use '/src/styles/abstract/' as g;
+
+
+.sideBar {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 300px;
+    max-width: 100vw;
+    height: 100vh;
+    z-index: 100 ;
+    display: grid; 
+    background-color: g.$background-color;
+    grid-template-columns: 100%; 
+    grid-template-rows: g.$header-h 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "."
+      "."; 
+    box-shadow: 0 0 5px g.$light-shadow;
+
+      .header {
+          background-color: g.$green-3;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-around;
+          align-items: center;
+
+
+          &__logo {
+            height: 70%;
+          }
+      }
+
+      .navigation {
+          width: 100% ;
+          scrollbar-width: thin;
+          scrollbar-color: g.$green-3 g.$search-gray;
+          overflow-y: scroll;
+          overflow-x: hidden;
+
+          ul {
+              
+          }
+      }
+
+}
+

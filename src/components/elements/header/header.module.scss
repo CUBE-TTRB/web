@@ -1,35 +1,108 @@
-
+@use '/src/styles/abstract/' as g;
 
 .header {
     display: grid;
     grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 60px;
-    gap: 0px 0px;
+    grid-template-rows: g.$header-h;
     grid-auto-flow: row;
     grid-template-areas:
       ". . .";
     height: 100%;
     margin: 0;
+    background-color: g.$background-color;
+    box-shadow: 0 0 5px g.$light-shadow;
 
 
     /*A DELETE*/
+
+    /*
+
     * {
         border: 1px solid red;
         position: relative;
 
 
-        &:after {
-            content:attr(class);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            align-items: center;
-            justify-content: center;
-          }
+        // &:after {
+        //     content:attr(class);
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     display: grid;
+        //     align-items: center;
+        //     justify-content: center;
+        //   }
       }
+
+      */
+
+    .menu{
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+      &__icon {
+        aspect-ratio: 1;
+        height: 70%;
+        width: auto;
+        margin:10%;
+      }
+    }
+
+    .account {
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+      align-items: center;
+      
+      &__icon {
+        aspect-ratio: 1;
+        height: 60%;
+        width: auto;
+        margin:10%;
+      }
+    }
+
+    .search {
+      display: flex;
+      flex-direction: right;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+
+
+      label {
+        display: flex;
+        width: 100%;
+        max-width: 300px;
+        height: 70%;
+        padding: 5px;
+        position: relative;
+        background-color: g.$search-gray ;
+        ;
+        border-radius: 5px;
+
+
+      }
+
+      &__bar {
+
+        width: 90%;
+
+      }
+
+      &__icon {
+        display: inline-block;
+        aspect-ratio: 1;
+        width: 10%;
+        min-width: 25px;
+        height: 100%;
+        margin:0 5px ;
+      }
+    }
+
+    
 }
   
   /* For presentation only, no need to copy the code below */
