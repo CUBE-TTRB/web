@@ -11,6 +11,7 @@
     z-index: 100 ;
     display: grid; 
     background-color: g.$background-color;
+    opacity: 1;
     grid-template-columns: 100%; 
     grid-template-rows: g.$header-h 1fr; 
     gap: 0px 0px; 
@@ -39,9 +40,11 @@
           scrollbar-color: g.$green-3 g.$search-gray;
           overflow-y: scroll;
           overflow-x: hidden;
+          background-color: g.$background-color;
 
           ul {
-              
+              padding: 5%;
+              padding-bottom: 0;
           }
       }
 

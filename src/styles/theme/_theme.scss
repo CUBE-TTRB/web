@@ -3,6 +3,7 @@
 
 
   --white: #fff;
+  --black: #000;
   --gray-light: #ebebeb;
   --gray: #e6e6e6;
   --gray-dark: #b3b3b3;
@@ -17,7 +18,8 @@
   --blue-4:#496a7a;
   --blue-5:#212a2e;
 
-  --text-color: var(--green-5);
+  --text-color: var(--black);
+  --nav-title-color: var(--green-5);
   --background-color: var(--white);
   --light-shadow : var(--gray-light);
   --search-gray: var(--gray)

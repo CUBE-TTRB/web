@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './menuSideBar.module.scss'
+import Nav_link from '../nav_link/nav_link'
+import Subnav_link from '../subnav_link/subnav_link'
 
 export default function menuSideBar() {
   return (
@@ -10,9 +12,12 @@ export default function menuSideBar() {
         </div>
         <div className={styles.navigation}>
           <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
+            <Nav_link name="Accueil" link="/"/>
+            <Nav_link name="test">
+              <Subnav_link name="bite" link="/"/>
+              <Subnav_link name="chat" link="/"/>
+              <Subnav_link name="couille" link="/"/>
+            </Nav_link>
           </ul>  
         </div>
     </nav>

@@ -1,9 +1,9 @@
-
+/*  SIZE    */
 $header-h:60px;
 
 
-$background-color : var(--background-color);
-$text-color : var(--text-color);
+
+/* BASE COLORS  */
 
 $white-color :var(--white) ;
 $gray-color :var(--gray) ;
@@ -15,6 +15,10 @@ $green-5 :var(--green-5);
 $blue-1 :var(--blue-1);
 $blue-2 :var(--blue-2);
 $blue-3 :var(--blue-3);
+
+/*  ATR COLORS  */
 $blue-4 :var(--blue-4);
+$text-color : var(--text-color);
+$background-color : var(--background-color);
 $light-shadow:var(--light-shadow);
 $search-gray:var(--search-gray)
