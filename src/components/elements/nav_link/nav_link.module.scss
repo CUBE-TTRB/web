@@ -1,5 +1,33 @@
+@use '/src/styles/base/' as b;
+@use '/src/styles/abstract/' as g;
+
+
+
+
+
 .nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    &__head {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+    }
+
+    & , &__nosub {
+        font-family: b.$nav-title-font;
+        font-style: b.$nav-title-font;
+        color: g.$nav-title-color;
+        font-size: 1.5em;
+        
+    }
 }

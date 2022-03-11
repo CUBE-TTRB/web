@@ -14,9 +14,9 @@ export default function menuSideBar() {
           <ul>
             <Nav_link name="Accueil" link="/"/>
             <Nav_link name="test">
-              <Subnav_link name="bite" link="/"/>
-              <Subnav_link name="chat" link="/"/>
-              <Subnav_link name="couille" link="/"/>
+              <Subnav_link name="bi" link="/"/>
+              <Subnav_link name="ch" link="/"/>
+              <Subnav_link name="co" link="/"/>
             </Nav_link>
           </ul>  
         </div>
