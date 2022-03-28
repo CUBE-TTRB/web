@@ -1,0 +1,31 @@
+@use '../abstract/' as a;
+
+
+h2.form {
+    color:a.$nav-title-color;
+    font-size: 1.7em;
+    font-weight: 450;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+input {
+    padding: 8px;
+    background-color: a.$gray-color;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: 300;
+    min-width: 300px;
+    width: 50%;
+    max-width: 100vw;
+}
+
+

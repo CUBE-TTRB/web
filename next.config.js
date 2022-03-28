@@ -4,12 +4,12 @@ const nextConfig = {
     /**
      * Provide the locales you want to support in your application
      */
-    locales: ["fr-FR","en-US"],
+    locales: ["fr-FR","en_GB","en-US"],
     /**
      * This is the default locale you want to be used when visiting
      * a non-locale prefixed path.
      */
-    defaultLocale: "fr-FR",
+    defaultLocale: "en-US",
   },
   reactStrictMode: true,
 }

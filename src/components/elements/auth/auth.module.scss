@@ -1,0 +1,46 @@
+@use '/src/styles/base/' as b;
+@use '/src/styles/abstract/' as g;
+
+.auth {
+
+    width: 100vw;
+    height: 100vh;
+    display: grid; 
+    background-color: g.$background-color;
+    opacity: 1;
+    grid-template-columns: 100%; 
+    grid-template-rows: g.$header-h 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "."
+      ".";
+
+    &__header {
+
+        background-color: g.$background-color;
+        box-shadow: 0 0 5px g.$light-shadow;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+
+        
+        &__title {
+            margin-left:10vw;
+            font-family: b.$nav-title-font;
+            font-style: b.$nav-title-font;
+            color: g.$nav-title-color;
+            font-size: 1.5em;
+        }
+
+        &__close {
+            height: 50%;
+        }
+    }
+
+    &__main {
+
+    }
+}

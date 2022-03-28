@@ -1,0 +1,15 @@
+@use '../abstract/' as a;
+
+button {
+    background-color: a.$button-check;
+    color: a.$reverse-text-color;
+    font-weight: 450;
+    font-size: 1.5em;
+    padding: 8px 15%;
+    border-radius: 1000000px;
+}
+
+button.green {
+    background-color: a.$green-1;
+    color: a.$green-5;
+}

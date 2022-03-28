@@ -19,21 +19,24 @@
   --blue-5:#212a2e;
 
   --text-color: var(--black);
+  --reverse-text-color : var(--white);
   --nav-title-color: var(--green-5);
   --background-color: var(--white);
   --light-shadow : var(--gray-light);
-  --search-gray: var(--gray)
-
+  --search-gray: var(--gray);
+  --button-check: var(--green-5);
 
   
 }
 
 [data-theme='dark'] {
   --background-color: var(--blue-5);
-  --text-color: var(--green-5);
+  --text-color: var(--white);
+  --reverse-text-color : var(--black);
   --light-shadow : var(--blue-4);
   --search-gray: var(--gray-light);
   --nav-title-color: var(--green-3);
+  --button-check: var(--green-5)
 
 
 }

@@ -1,0 +1,12 @@
+
+@use '/src/styles/abstract/' as g;
+
+.forgotPwd {
+    text-align: center;
+    cursor:pointer;
+
+    span {
+        text-decoration: underline g.$green-1 2px;
+
+    } 
+}

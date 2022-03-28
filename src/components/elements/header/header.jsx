@@ -8,7 +8,8 @@ export default function header() {
   return (
     <header className={styles.header}>
       <div className={styles.menu}>    
-        <img className={styles.menu__icon} src="/icons/icon_navigation_menu.svg" alt="" />
+        
+        
       </div>
       <div className={styles.search}>
         <label>
