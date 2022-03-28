@@ -1,0 +1,25 @@
+
+@use '/src/styles/abstract/' as g;
+
+
+.form {
+    background-color: g.$green-3;
+    border-radius: 150% 150% 0px 0px / 100% 100% 0px 0px;
+    //clip-path: path("M 181,0.94335938 C 119.76485,0.94335938 58.530176,12.808333 0.81054688,36.537109 L 1,37 v 167.5 1 h 1 358 1 v -1 V 37 l 0.18945,-0.462891 C 303.46982,12.808333 242.23515,0.94335937 181,0.94335938 Z m 0,1.00000002 c 60.82125,0 121.63781,11.7483096 179,35.2070316 V 204.5 H 2 V 37.150391 C 59.362189,13.691669 120.17875,1.9433594 181,1.9433594 Z");
+    &.isActive {
+        & > .icon {
+            display: none !important;
+        }
+        height: 70%;
+    } 
+
+    &.isNotActive {
+        & *:not(.icon, h2) {
+            display: none !important;
+        }
+        height: 30%;
+
+    } 
+
+
+}

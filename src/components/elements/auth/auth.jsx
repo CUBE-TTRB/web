@@ -12,9 +12,9 @@ export default function auth() {
             <img className={styles.auth__header__close} src="/icons/icon_navigation_close.svg" alt="test" />
         </div>
         <div className={styles.auth__main}>
-            <ConnectForm />
-            <ForgetForm />
-            <CreateForm />
+            <ConnectForm isActive={true} />
+            <ForgetForm isActive={false} />
+            <CreateForm isActive={false} />
         </div>
     </section>
     

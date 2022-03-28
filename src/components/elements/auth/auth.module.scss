@@ -42,5 +42,21 @@
 
     &__main {
 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        & form {
+        }
+    }
+
+
+
+
+
+    button {
+        width: 150px ;
+        padding: 8px;
+        text-align: center;
     }
 }

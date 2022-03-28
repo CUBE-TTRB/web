@@ -1,12 +1,35 @@
 
 @use '/src/styles/abstract/' as g;
 
-.forgotPwd {
-    text-align: center;
-    cursor:pointer;
+.form {
 
-    span {
-        text-decoration: underline g.$green-1 2px;
+    background-color: g.$white;
+    border-radius: 0px 0px 150% 150% / 0px 0px 100% 100%;
+
+
+    &.isActive {
+        & > .icon {
+            display: none !important;
+        }
+        height: 70%;
+    } 
+
+    &.isNotActive {
+        & *:not(.icon, h2) {
+            display: none !important;
+        }
+        height: 30%;
 
     } 
+
+    .forgotPwd {
+        text-align: center;
+        cursor:pointer;
+    
+        span {
+            text-decoration: underline g.$green-1 2px;
+    
+        } 
+    }
+    
 }
