@@ -9,7 +9,7 @@ export default function forgetForm({isActive}) {
     <form className={styles.form}>
         <h2 className='form'>Mot de passe oublié</h2>
         <input placeholder='Adresse email' id="email" name="email" type="email" autoComplete="email" required />
-        <button type="submit">Demander</button>
+        <button type="submit" className='green'>Demander</button>
         
     </form>
       

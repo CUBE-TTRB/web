@@ -16,9 +16,15 @@ export default function auth() {
   const [actives, setActives] = useState(forms)
   const [count, setCount] = useState(0);
 
+  const mainBackground = (
+    actives.connectForm ? `${styles.auth__main} ${styles.white}`:
+    actives.forgetForm ? `${styles.auth__main} ${styles.blue}`:
+    `${styles.auth__main} ${styles.green}`
+  );
+
 
   function setFormsActive(string){
-    let temp = forms;
+    let temp = { ...forms };
     Object.keys(forms).map((el)=> temp[el] = false);
     temp[string] = true;
     setActives(temp);
@@ -34,20 +40,18 @@ export default function auth() {
     console.log("test", actives);
   }, [actives]);
   
-  
+
 
   return (
     <section className={styles.auth}>
         <div className={styles.auth__header}>
-        <a onClick={() => setFormsActive("forgetForm")}>TEST2 {count}</a>
-        <a onClick={() => setCount(count + 1)}>TEST</a>
             <h2 className={styles.auth__header__title}>Auth</h2>
             <img className={styles.auth__header__close} src="/icons/icon_navigation_close.svg" alt="test" />
         </div>
-        <div className={styles.auth__main}>
-            <ConnectForm isActive={actives.connectForm} />
-            <ForgetForm isActive={actives.forgetForm} />
-            <CreateForm isActive={actives.createForm} />
+        <div className={mainBackground}>
+            <ConnectForm isActive={actives.connectForm} setFormsActive={setFormsActive}/>
+            <ForgetForm isActive={actives.forgetForm} setFormsActive={setFormsActive}/>
+            <CreateForm isActive={actives.createForm} setFormsActive={setFormsActive}/>
         </div>
     </section>
     

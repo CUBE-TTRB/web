@@ -1,7 +1,7 @@
 import styles from './createForm.module.scss'
 
 
-export default function createForm({isActive}) {
+export default function createForm({isActive, setFormsActive}) {
   let formClass = `${styles.form} ${styles.isNotActive}`;
   if(isActive){
     formClass = `${styles.form} ${styles.isActive}`;
@@ -20,7 +20,7 @@ export default function createForm({isActive}) {
             <button type="submit">Créer</button>
 
 
-            <img className={styles.icon} src="/icons/icon_openUp_white.svg" alt="test" />
+            <img onClick={()=> setFormsActive("createForm")} className={styles.icon} src="/icons/icon_openUp_white.svg" alt="test" />
             
             
         </form>

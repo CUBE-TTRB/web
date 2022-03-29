@@ -1,7 +1,7 @@
 import styles from './connectForm.module.scss'
 
 
-export default function connectForm({isActive}) {
+export default function connectForm({isActive, setFormsActive}) {
   let formClass = `${styles.form} ${styles.isNotActive}`;
   if(isActive){
     formClass = `${styles.form} ${styles.isActive}`;
@@ -16,12 +16,12 @@ export default function connectForm({isActive}) {
             <input placeholder='Adresse email' id="email" name="email" type="email" autoComplete="email" required />
             <input placeholder='Mot de passe' id="password" name="password" type="password" autoComplete="password" required />
             <button type="submit">Valider</button>
-            <a className={styles.forgotPwd}>
+            <a onClick={()=> setFormsActive("forgetForm")} className={styles.forgotPwd}>
               Mot de passe oublié ? <br />
                <span>Cliquez ici !</span> 
             </a>
 
-            <img className={styles.icon} src="/icons/icon_openDown.svg" alt="test" />
+            <img onClick={()=> setFormsActive("connectForm")} className={styles.icon} src="/icons/icon_openDown.svg" alt="test" />
 
         </form>
         
