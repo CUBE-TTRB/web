@@ -1,15 +1,35 @@
 import styles from './connectForm.module.scss'
+import useSWR from 'swr'
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
 
 
 export default function connectForm({isActive, setFormsActive}) {
+
+
+  function handleSubmit(element) {
+    element.preventDefault();
+    let thisForm = element.target;
+    console.log(thisForm.password.value);
+
+    const { data, error } = useSWR('https://api-cube.remidurieu.dev/sessions', fetcher)
+
+    if(date){console.log(date)};
+    if(error){console.log(error)};
+
+  };
+
+
   let formClass = `${styles.form} ${styles.isNotActive}`;
   if(isActive){
     formClass = `${styles.form} ${styles.isActive}`;
   }
+
   return (
     <>
         {/* <form onSubmit={registerUser}> */}
-        <form className={formClass}>
+        <form onSubmit={handleSubmit} className={formClass}>
             <h2 className='form'>Connectez-vous</h2>
 
 
