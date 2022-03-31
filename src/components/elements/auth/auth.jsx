@@ -14,7 +14,7 @@ export default function auth() {
   }
 
   const [actives, setActives] = useState(forms)
-  const [count, setCount] = useState(0);
+
 
   const mainBackground = (
     actives.connectForm ? `${styles.auth__main} ${styles.white}`:
@@ -31,13 +31,10 @@ export default function auth() {
     
   };
 
-  useEffect(() => {
-      document.title = `You clicked ${count} times`;
-  }, [count]);
 
 
   useEffect(() => {
-    console.log("test", actives);
+    
   }, [actives]);
   
 
