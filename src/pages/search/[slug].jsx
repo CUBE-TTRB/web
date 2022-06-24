@@ -18,9 +18,9 @@ export default function searchSlug ({post}) {/*
         <Card key={el.id} 
           title="titleArticle" 
           icon="" 
-          image="https://via.placeholder.com/1920x1080/999999/FFFFFF/?text=IMAGE" 
+          image="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
           description="" 
-          user="" 
+          user={{"porfilePiture":"https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"}}
           like="" 
           comment="" 
           tags=""

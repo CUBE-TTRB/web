@@ -25,7 +25,6 @@ export default function navigationLayout({children}) {
       active={sidebarMenu}
     /> 
     <main>{children}</main>
-    <Footer />
     </>
     
   )

@@ -1,0 +1,216 @@
+@use '/src/styles/abstract/' as g;
+@use '/src/styles/base/' as b;
+
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: b.$nav-title-font;
+    font-style: b.$nav-title-font;
+    flex-wrap: wrap;
+    margin: 10px clamp(1px,15vw,300px);
+    max-width: 1400px;
+
+    button, input {
+        font-size: 1em;
+        margin: .25em 0;
+    }
+
+    input {
+        border-radius: 5px;
+    }
+    .card{
+        height: 300px;
+        min-height: min-content;
+    }
+
+    
+    .user {
+        width: 300px;
+        max-width: 95vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        aspect-ratio: 1;
+
+        &__background {
+            border-radius: 5px;
+            overflow: hidden;
+            height: 100px;
+            width: 100%;
+        }
+
+        &__profile {
+            height: 50px;
+            width: 100%;
+            position: relative;
+            &___image {
+                position: absolute;
+                top:-100%;
+                left:5%;
+                overflow: hidden;
+                border-radius: 100%;
+                border:solid 7px g.$white;
+                width: 93px;
+                aspect-ratio: 1;
+                background-color: g.$white;
+            }
+        }
+
+        &__name {
+            font-weight: 900;
+            text-align: left;
+            width: 100%;
+            padding: 0 5%;
+            height: 20px;
+        }
+
+        &__description {
+            margin-top: 10px;
+            padding: 5%;
+            height: 100px;
+            overflow:scroll;
+            text-align: left;
+            width: 100%;
+            overflow-x: hidden;
+        }
+    }
+    
+
+    .cardInfo {
+        display: flex;
+        flex-direction: row;
+        padding: 2em;
+        gap: 2em;
+        height: 300px;
+
+        @media (max-width: 700px){
+            height: 600px;
+            flex-direction: column;
+
+        }
+        .col {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    }
+
+    .cardPwd {
+        height: 300px;
+        aspect-ratio: 9/16;
+        display: flex;
+        justify-content: space-between;
+        padding: 2em 10px;
+        text-align: center;
+        span {
+            font-weight: 900;
+        }
+        @media (max-width: 1455px) and (min-width:700px) {
+            order: -1;
+        }
+        @media (max-width: 700px) {
+            width: 364px;
+        }
+    }
+
+
+    .cardSuccess {
+        width: 300px;
+        max-width: 95vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        aspect-ratio: 1;
+        padding: 0;
+        overflow: hidden;
+
+
+
+        .header {
+            background-color: g.$green-3;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            height: 60px;
+            color: g.$white;
+            font-weight: 900;
+        }
+        ul {
+            margin: 5%;
+            width: 90%;
+            height: 90%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            
+            li {
+                width: 90%;
+                margin: 0 5%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .cardStats {
+        height: 300px;
+        width: 875px;
+        padding: 20px;
+
+        @media (max-width: 1700px) {
+            width: 830px;
+        }
+        @media (max-width: 1455px) {
+            width: 700px;
+            min-width: 700px;
+        }
+        @media (max-width: 700px){
+            height: auto;
+            padding: 2em;
+            width: 300px;
+            max-width: 95vw;
+            min-width: unset;
+            .stats {
+                flex-direction: column !important;
+            }
+            
+        }
+
+        &>span {
+            text-align: left;
+            width: 100%;
+            font-weight: 900;
+        }
+        .stats {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+
+            .stat {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                height: 80%;
+                text-align: center;
+
+                &__number {
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+
+
+}

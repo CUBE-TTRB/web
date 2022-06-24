@@ -1,0 +1,30 @@
+@use '/src/styles/abstract/' as g;
+@use '/src/styles/base/' as b;
+
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: b.$nav-title-font;
+    font-style: b.$nav-title-font;
+    flex-wrap: wrap;
+    margin: 10px clamp(1px,15vw,300px);
+    max-width: 1400px;
+
+    .editor {
+        width: 500px !important;
+        height: 100px !important;
+        overflow: hidden;
+        .test2 {
+            .ql-container {
+                background-color: red;
+            }
+        }
+        .ql-image{
+            height: 100px;
+            width: 200px;
+            background-color: red !important;
+        }
+    }
+}

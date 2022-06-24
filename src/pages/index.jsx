@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Layout from '../components/layout/layout'
 import NavigationLayout from '../components/layout/navigationLayout'
 import HomePage from '../components/elements/homePage/homePage'
+import Footer from '../components/elements/footer/footer'
 import { useTheme } from 'next-themes'
 
 export default function Home() {
@@ -29,6 +30,8 @@ Home.getLayout = function getLayout(page) {
   return (
     <Layout>
       <NavigationLayout>{page}</NavigationLayout>
+      <Footer />
+
     </Layout>
   )
 }

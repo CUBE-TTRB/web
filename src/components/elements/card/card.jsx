@@ -3,22 +3,21 @@ import React from 'react'
 import styles from './card.module.scss'
 
 export default function card({link,title,icon,image,description,user,like,comment,tags}) {
-  
-  let test = "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+  console.log(user)
   return (
     <article className={[ "card" , styles.card ].join(" ")} >
       <div className={styles.card__header}> 
-        <a title="Title aaaaaaaaaaaaaaaaa">Title aa</a> 
+        <a title={title}>{title}</a> 
         <Image         
-          src="/icons/video.svg"
-          alt="Picture of the author"
+          src={"/icons/"+icon+".svg"}
+          alt={"Picture of "+ icon}
           width={30}
           height={30}
         /> 
       </div>
       <div className={styles.card__image}>
         <Image         
-            src={test}
+            src={image}
             alt="Picture of the author"
             width={1920}
             height={1080}
@@ -36,7 +35,7 @@ export default function card({link,title,icon,image,description,user,like,commen
       <div className={styles.card__infos}>
         <div className={styles.user}>
           <Image         
-              src={test}
+              src={user.porfilePiture}
               alt="?"
               width={50}
               height={50}
