@@ -11,6 +11,9 @@ const nextConfig = {
      */
     defaultLocale: "en-US",
   },
+  images: {
+    domains: ['via.placeholder.com','images.unsplash.com','png.pngtree.com'],
+  },
   reactStrictMode: true,
 }
 

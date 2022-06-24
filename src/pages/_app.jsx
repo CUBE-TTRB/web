@@ -7,14 +7,14 @@ import { AppWrapper } from '../context/state';
 
 
 function MyApp({ Component, pageProps }) {
-  return(
-    
+  const getLayout = Component.getLayout || ((page) => page)
+
+  return getLayout(    
     <AppWrapper>
     <ThemeProvider>
       <Component {...pageProps} />
     </ThemeProvider>
-    </AppWrapper>
-
+    </AppWrapper> 
   )
 }
 

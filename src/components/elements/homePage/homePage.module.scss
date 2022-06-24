@@ -1,0 +1,99 @@
+
+@use '/src/styles/abstract/' as g;
+@use '/src/styles/base/' as b;
+
+
+.svg {
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.home {
+
+    margin: 0;
+    width: 100vw;
+    height: calc(100vh - 60px); 
+    display: grid;
+    grid-auto-flow: row;
+    .clipped,.maintext {
+        height: calc(50vh - g.$header-h/2);
+        width: 100%; 
+    }
+    @media (min-width: g.$min-width ) {
+
+          grid-auto-flow: column;
+          .clipped,.maintext {
+            height: calc(100vh - g.$header-h); 
+            width: 100%;
+        }
+    }
+
+    @media (max-width: g.$min-width ) and (max-height: 600px) {
+
+      min-height: 600px;
+      height: min-content;
+      .clipped {
+        height: 75vh;
+      }
+      .maintext {
+          height: min-content;
+      }
+  }
+
+
+
+
+
+
+    .clipped {
+        max-width: 100vw;
+        background: linear-gradient(to left,#173544, #25B99A);
+        background-size: cover;
+        -webkit-clip-path: url(#my_clip_path);
+        clip-path: url(#my_clip_path);
+        margin-left:auto;
+        display: grid;
+        place-items: center right;
+
+        @media (min-width: g.$min-width ) {
+
+          width: 50vw;
+      }
+
+
+        .image {
+            width: 50%;
+            height: 70%;
+            margin: 0 10%;
+        }
+    }
+
+    .maintext {
+        display: grid;
+        place-items: center;
+        padding:clamp(1%, 10vw, 10%);
+
+        p {
+            font-family:Georgia, sans-serif ;//b.$nav-title-font;
+            font-style: normal;
+            font-size: clamp(1rem, 2vw, 1.5rem); 
+            text-align: left;
+
+            img {
+                vertical-align: middle;
+                width: clamp(2em, 2vw, 140em); 
+                padding-bottom: 15px;
+            }
+            span {
+                font-style: normal;
+                font-weight: 700;
+                font-size: clamp(2em, 2vw, 3.5em); 
+                line-height: clamp(2empx, 5vw, 85px);
+                text-transform: uppercase;
+                color: #25B99A;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+

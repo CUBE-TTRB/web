@@ -1,42 +1,49 @@
 :root {
-  /* Your default theme */
-
 
   --white: #fff;
   --black: #000;
-  --gray-light: #ebebeb;
-  --gray: #e6e6e6;
-  --gray-dark: #b3b3b3;
+
+  --gray-light-extra : hsl(0, 0%, 90%);
+  --gray-light: hsl(0, 0%, 75%);
+  --gray: hsl(0, 0%, 50%);
+  --gray-dark: hsl(0, 0%, 25%);
+  --gray-dark--extra: hsl(0, 0%, 10%);
+
   --green-1:#77e58a;
   --green-2:#2de0ba;
   --green-3:#25b99a;
   --green-4:#47665f;
   --green-5:#273f49;
+
   --blue-1:#25eaf7;
   --blue-2:#24aced;
   --blue-3:#117bad;
   --blue-4:#496a7a;
   --blue-5:#212a2e;
 
-  --text-color: var(--black);
-  --reverse-text-color : var(--white);
-  --nav-title-color: var(--green-5);
-  --background-color: var(--white);
-  --light-shadow : var(--gray-light);
-  --search-gray: var(--gray);
-  --button-check: var(--green-5);
+  --text-color:           var(--black);
+  --reverse-text-color :  var(--white);
+  --nav-title-color:      var(--green-5);
+  --background-color:     var(--white);
+  --light-shadow :        var(--gray-light);
+  --basic-shadow :        var(--gray);
+  --dark-shadow :         var(--gray-dark);
+  --search-gray:          var(--gray-light-extra);
+  --button-check:         var(--green-5);
 
   
 }
 
 [data-theme='dark'] {
-  --background-color: var(--blue-5);
-  --text-color: var(--white);
-  --reverse-text-color : var(--black);
-  --light-shadow : var(--blue-4);
-  --search-gray: var(--gray-light);
-  --nav-title-color: var(--green-3);
-  --button-check: var(--green-5)
+  --text-color:           var(--black);
+  --reverse-text-color :  var(--white);
+  --nav-title-color:      var(--green-5);
+  --background-color:     var(--white);
+  --light-shadow :        var(--gray-light);
+  --basic-shadow :        var(--gray);
+  --dark-shadow :         var(--gray-dark);
+  --search-gray:          var(--gray-light-extra);
+  --button-check:         var(--green-5);
 
 
 }

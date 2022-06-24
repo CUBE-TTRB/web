@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../components/layout/layout'
+import NavigationLayout from '../components/layout/navigationLayout'
+import HomePage from '../components/elements/homePage/homePage'
 import { useTheme } from 'next-themes'
 
 export default function Home() {
@@ -13,11 +15,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
-      <Layout>
 
-      <button onClick={() => setTheme('light')}>Light Mode</button>
-      <button onClick={() => setTheme('dark')}>Dark Mode</button>
-      </Layout>
+        <HomePage />
+      {/* <button onClick={() => setTheme('light')}>Light Mode</button>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button> */}
+
+
     </>
+  )
+}
+
+Home.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      <NavigationLayout>{page}</NavigationLayout>
+    </Layout>
   )
 }

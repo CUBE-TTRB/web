@@ -1,12 +1,17 @@
 /*  SIZE    */
 $header-h:60px;
-
+$min-width: 55em;
 
 
 /* BASE COLORS  */
 
-$white-color :var(--white) ;
-$gray-color :var(--gray) ;
+$white :var(--white) ;
+$black : var(--black);
+$gray-light-extra :var(--gray-light-extra);
+$gray-light :var(--gray-light);
+$gray :var(--gray);
+$gray-dark :var(--gray-dark);
+$gray-dark--extra :var(--gray-dark--extra);
 $green-1 :var(--green-1);
 $green-2 :var(--green-2);
 $green-3 :var(--green-3);
@@ -20,11 +25,13 @@ $blue-5 :var(--blue-5);
 
 /*  ATR COLORS  */
 
-$white : var(--white);
+
 $blue-4 :var(--blue-4);
 $text-color : var(--text-color);
 $background-color : var(--background-color);
 $light-shadow:var(--light-shadow);
+$basic-shadow:var(--basic-shadow);
+$dark-shadow:var(--dark-shadow);
 $search-gray:var(--search-gray);
 $nav-title-color: var(--nav-title-color);
 $button-check : var(--button-check);
