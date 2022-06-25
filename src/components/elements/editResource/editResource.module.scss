@@ -9,22 +9,56 @@
     font-family: b.$nav-title-font;
     font-style: b.$nav-title-font;
     flex-wrap: wrap;
-    margin: 10px clamp(1px,15vw,300px);
-    max-width: 1400px;
+    margin: 10px auto;
+    max-width: 1000px;
 
-    .editor {
-        width: 500px !important;
-        height: 100px !important;
-        overflow: hidden;
-        .test2 {
-            .ql-container {
-                background-color: red;
+    article, .cardEditor, .quillResource {
+        min-height: 510px;
+    }
+    .cardEditor {
+        width: 300px;
+        padding: 20px;
+        justify-content: space-around;
+        input,button,label,select,fieldset {
+            font-size: 1em;
+            width:90%;
+        }
+
+        input,select {
+            border-radius: 5px;
+        }
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            legend {
+                    margin: 5% 0;
+                }
+            div {
+                display: flex;
+                align-items: center;
+                padding: 0 2%;
+
+                input {
+                    margin-right: 5px;
+                }
             }
         }
-        .ql-image{
-            height: 100px;
-            width: 200px;
-            background-color: red !important;
-        }
+
+    }
+
+    .editor {
+        width: 0!important;
+        height: 0 !important;
+        overflow: hidden;
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+
+    .quillResource {
+        width: 610px;
+        padding: 20px;
+
     }
 }

@@ -27,6 +27,52 @@ input {
     width: 300px;
     max-width: 90vw;
     text-align: center;
+
+    &[type="checkbox"]{
+        background-color: a.$background-color;
+        width: 4px !important;
+        height: 4px !important;
+        border: solid 4px a.$gray-light;
+        border-radius: 100% !important;
+        position: relative;
+
+        &:checked::after {
+            content: '';
+            width: 50%;
+            height: 50%;
+            inset: 0;
+            margin: auto;
+            border-radius: 100% !important;
+            position: absolute;
+            background-color: a.$green-3;
+
+        }
+    }
 }
+
+
+
+select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 8px;
+    background-color: a.$gray-light-extra;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: 300;
+    width: 300px;
+    max-width: 90vw;
+    text-align: center;
+    position: relative;
+    background-image: 
+      linear-gradient(a.$gray-light-extra, a.$gray-light-extra),
+      linear-gradient(-115deg, transparent 50%, a.$gray-light-extra 50%),
+      linear-gradient(-245deg, transparent 50%, a.$gray-light-extra 50%),
+      linear-gradient(a.$gray-light-extra 42%, a.$gray 42%);
+    background-repeat: no-repeat;
+    background-size: 1px 100%, 22px 25px, 22px 25px, 22px 100%;
+    background-position: right 20% center, right bottom, right bottom, right bottom;   
+  }
 
 

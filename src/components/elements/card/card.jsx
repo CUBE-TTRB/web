@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './card.module.scss'
 
 export default function card({link,title,icon,image,description,user,like,comment,tags}) {
-  console.log(user)
+
   return (
     <article className={[ "card" , styles.card ].join(" ")} >
       <div className={styles.card__header}> 
@@ -27,10 +27,7 @@ export default function card({link,title,icon,image,description,user,like,commen
           />
       </div>
       <div className={styles.card__description}>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum qui blanditiis quasi animi, aliquam cumque itaque ut vero nulla magni officiis laboriosam amet vel expedita, eligendi accusantium atque ea consectetur?
-          Cumque reiciendis id cupiditate distinctio omnis aut dolor sint sed maiores dicta tempora voluptatem rerum eveniet, placeat dignissimos unde laudantium enim dolorum. Deleniti temporibus illo ad, blanditiis sint reprehenderit voluptatem?
-        </p>
+        <p>{description}</p>
       </div>
       <div className={styles.card__infos}>
         <div className={styles.user}>
@@ -71,11 +68,13 @@ export default function card({link,title,icon,image,description,user,like,commen
         </div>
       </div>
       <div className={styles.card__tags}>
-      <span className={styles.tag}> <Image src="/icons/tags.svg" alt="♟" width={15} height={15}/>Famille</span>
-      <span className={styles.tag}> <Image src="/icons/tags.svg" alt="♟" width={15} height={15}/>Amis</span>
-      <span className={styles.tag}> <Image src="/icons/tags.svg" alt="♟" width={15} height={15}/>Conjoints</span>
-      <span className={styles.tag}> <Image src="/icons/tags.svg" alt="♟" width={15} height={15}/>Professionnelle</span>
-      <span className={styles.tag}> <Image src="/icons/tags.svg" alt="♟" width={15} height={15}/>Inconnus</span>
+        {
+          tags.map(el => {
+            return (
+            <span key={el.id} className={styles.tag}> <Image src="/icons/tags.svg" alt="♟" width={15} height={15}/>{el.name}</span>
+            )
+          })
+        }
       </div>
     </article>
   )

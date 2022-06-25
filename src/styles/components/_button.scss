@@ -7,9 +7,11 @@ button {
     font-size: 1.5em;
     padding: 8px 15%;
     border-radius: 1000000px;
+    text-align: center;
 }
 
 button.green {
     background-color: a.$green-1;
     color: a.$green-5;
 }
+
