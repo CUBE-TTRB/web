@@ -58,7 +58,10 @@
 
     .quillResource {
         width: 610px;
-        padding: 20px;
+        flex-direction: column;
+        height: max-content;
+        align-items: center;
+        justify-content: flex-start;
 
     }
 }

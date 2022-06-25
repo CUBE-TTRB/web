@@ -1,24 +1,22 @@
 import { useQuill } from 'react-quilljs';
-import * as Quill from 'quill/quill';
-import 'quill/dist/quill.snow.css';
 import styles from './editResource.module.scss'
 import Card from '../card/card';
 import { useEffect,useState,useRef } from 'react';
-
+import QuillEditor from '../quillEditor/quillEditor';
 export default function editResource() {
 
 
 
 
-  const { quill1, quillRef1 } = useQuill();
-/*
-{
-      modules: {
-        toolbar: {
-          container: '#toolbar2'
-        }
+  const { quill, quillRef } = useQuill({
+    modules: {
+      toolbar: {
+        container: '#toolbar2'
       }
     }
+  });
+/*
+
 */
     //const { quillResource, quillResourceRef } = useQuill()
 
@@ -47,14 +45,14 @@ export default function editResource() {
     const [ tags, setTags] = useState(tagsList);
     
     useEffect(() => {
-        if (quill1) {
-          quill1.on('text-change', (delta, oldDelta, source) => {
-            let content = quill1.getContents();
+        if (quill) {
+          quill.on('text-change', (delta, oldDelta, source) => {
+            let content = quill.getContents();
             // console.log(content.ops.length); 
             setImage(content.ops[(content.ops.length -2)].insert.image)
           });
         }
-      }, [quill1]);
+      }, [quill]);
     
     let fileRef = useRef();
     function triggerClick() {
@@ -123,9 +121,9 @@ export default function editResource() {
       
 
 
-      <div className={[ "card" , styles.quillResource ].join(" ")}>
-       
-      </div>
+    
+        <QuillEditor className={[ "card" , styles.quillResource ].join(" ")}/>
+
       
 
 
@@ -134,13 +132,12 @@ export default function editResource() {
 
       <div className={styles.editor}> { /*  Invisible Quil Component  */}
         <div>
-          <div ref={quillRef1} /> { /* Thumbnail*/}
+          <div ref={quillRef} /> { /* Thumbnail*/}
           <div id="toolbar2">
             <button className="ql-image" ref={fileRef} />
           </div>
         </div>
       </div>
-
 
 
     </div>
