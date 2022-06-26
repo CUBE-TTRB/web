@@ -30,7 +30,7 @@ Home.getLayout = function getLayout(page) {
   return (
     <Layout>
       <NavigationLayout>{page}</NavigationLayout>
-      <Footer />
+      {/* <Footer /> */}
 
     </Layout>
   )

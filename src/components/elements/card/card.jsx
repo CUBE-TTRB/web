@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import React from 'react'
 import styles from './card.module.scss'
+import Link from 'next/link'
 
 export default function card({link,title,icon,image,description,user,like,comment,tags}) {
 
-  return (
+  let thisCard = (
     <article className={[ "card" , styles.card ].join(" ")} >
       <div className={styles.card__header}> 
         <a title={title}>{title}</a> 
@@ -78,4 +79,14 @@ export default function card({link,title,icon,image,description,user,like,commen
       </div>
     </article>
   )
+
+  if(link){
+    return (
+      <Link href={"/resource/"+link}>
+        {thisCard}
+      </Link>
+    )
+  }else {
+    return thisCard
+  }
 }

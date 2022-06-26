@@ -1,6 +1,6 @@
 import styles from './header.module.scss'
 import Image from 'next/image'
-
+import Link from 'next/link'
 
 
 export default function header({handleSidebarMenu}) {
@@ -9,7 +9,7 @@ export default function header({handleSidebarMenu}) {
     <header className={styles.header}>
       <div className={styles.menu}>    
       <img onClick={handleSidebarMenu} className={styles.menu__icon} src="/icons/icon_navigation_menu.svg" alt="" />
-      <img className={styles.menu__logo} src="/icons/logo_green.svg" alt="" />
+      <Link href="/"><img className={styles.menu__logo} src="/icons/logo_green.svg" alt="" /></Link>
       </div>
       <div className={styles.search}>
         <label>
@@ -18,7 +18,7 @@ export default function header({handleSidebarMenu}) {
         </label>
       </div>
       <div className={styles.account}>    
-        <img className={styles.account__icon} src="/icons/icon_account.svg" alt="" />
+      <Link href="/auth"><img className={styles.account__icon} src="/icons/icon_account.svg" alt="" /></Link>
       </div>
     </header>
   )

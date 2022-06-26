@@ -3,7 +3,7 @@ import ConnectForm from '../connectForm/connectForm'
 import ForgetForm from '../forgetForm/forgetForm'
 import CreateForm from '../createForm/createForm'
 import { useState, useEffect } from "react"
-
+import Link from 'next/link'
 
 export default function auth() {
 
@@ -43,7 +43,8 @@ export default function auth() {
     <section className={styles.auth}>
         <div className={styles.auth__header}>
             <h2 className={styles.auth__header__title}>Auth</h2>
-            <img className={styles.auth__header__close} src="/icons/icon_navigation_close.svg" alt="test" />
+            <Link href="/"><img className={styles.auth__header__close} src="/icons/icon_navigation_close.svg" alt="test" /></Link>
+            
         </div>
         <div className={mainBackground}>
             <ConnectForm isActive={actives.connectForm} setFormsActive={setFormsActive}/>
