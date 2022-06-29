@@ -5,7 +5,7 @@ FROM node:16.14.0 AS builder
 
 EXPOSE 3000
 
-WORKDIR /app
+WORKDIR /web
 
 COPY . .
 

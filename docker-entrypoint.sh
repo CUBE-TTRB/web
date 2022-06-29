@@ -2,9 +2,9 @@
 
 set -e
 
-cd /app
+cd /web
 
-echo "Build app"
+echo "Build web"
 
 npm run build
 
