@@ -1,0 +1,11 @@
+@use '/src/styles/abstract/' as g;
+@use '/src/styles/base/' as b;
+
+.go {
+    height: 95vh;
+    text-align: center;
+    h3 {
+        font-size: 1.5em;
+        color: g.$green-5;
+    }
+}

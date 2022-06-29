@@ -6,7 +6,6 @@ import { ThemeProvider } from 'next-themes'
 import { AppWrapper } from '../context/state';
 
 
-
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
 

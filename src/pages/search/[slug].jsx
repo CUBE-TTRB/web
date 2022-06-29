@@ -4,7 +4,9 @@ import Layout from '../../components/layout/layout'
 import NavigationLayout from '../../components/layout/navigationLayout'
 import Card from '../../components/elements/card/card'
 import Resources from '../../components/elements/resources/resources'
-
+import { AppContext } from '../../context/state';
+import { useContext } from 'react'
+import NoResult from '../../components/elements/noResult/noResult'
 export default function searchSlug ({post}) {/*
     const router = useRouter()
     const { pid } = router.query*/
@@ -16,6 +18,18 @@ export default function searchSlug ({post}) {/*
     { name:"Professionel",id:4},
     { name:"Inconnus",id:5}
 ]
+const test2 = useContext(AppContext);
+console.log(test2)
+
+
+    if(!post || post.length <= 0){
+      return (
+        <Resources>
+          <NoResult />
+        </Resources>
+        
+      )
+    }
     return (
 
     <>

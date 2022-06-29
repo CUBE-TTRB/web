@@ -1,9 +1,16 @@
 import Auth from '../components/elements/auth/auth'
 import Head from 'next/head'
-
+import { AppContext } from '../context/state';
+import { useContext } from 'react'
+import Router from 'next/router';
 
 export default function auth() {
-  return (
+
+  const authContext = useContext(AppContext);
+  if(authContext.state.auth){
+    Router.push("/");
+  }else {
+      return (
     <>
     <Head>
       <title>Create Next App</title>
@@ -14,4 +21,6 @@ export default function auth() {
     <Auth />
   </>
   )
+  }
+
 }

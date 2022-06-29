@@ -1,10 +1,12 @@
 import styles from './header.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import { AppContext } from '../../../context/state'
+import { useContext } from 'react'
 
 export default function header({handleSidebarMenu}) {
-  
+  const isAuth = useContext(AppContext);
+
   return (
     <header className={styles.header}>
       <div className={styles.menu}>    
@@ -18,6 +20,7 @@ export default function header({handleSidebarMenu}) {
         </label>
       </div>
       <div className={styles.account}>    
+      
       <Link href="/auth"><img className={styles.account__icon} src="/icons/icon_account.svg" alt="" /></Link>
       </div>
     </header>

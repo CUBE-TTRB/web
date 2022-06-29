@@ -3,11 +3,20 @@ import Image from 'next/image'
 import UserProfile from '../components/elements/userProfile/userProfile'
 import Layout from '../components/layout/layout'
 import NavigationLayout from '../components/layout/navigationLayout'
+import { AppContext } from '../context/state';
+import { useContext } from 'react'
+import Router from 'next/router'
 
 export default function Profil() {
-  return (
-    <UserProfile />
-  )
+  const authContext = useContext(AppContext);
+  if(authContext.state.auth){
+    return (
+      <UserProfile />
+    )
+  }else {
+    Router.push("/")
+  }
+
 }
 
 

@@ -5,9 +5,14 @@ import NavigationLayout from '../components/layout/navigationLayout'
 import HomePage from '../components/elements/homePage/homePage'
 import Footer from '../components/elements/footer/footer'
 import { useTheme } from 'next-themes'
+import { AppContext } from '../context/state';
+import { useContext } from 'react'
 
 export default function Home() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
+
+
+
   return (
     <>
       <Head>
@@ -27,9 +32,10 @@ export default function Home() {
 }
 
 Home.getLayout = function getLayout(page) {
+  const authContext = useContext(AppContext);
   return (
     <Layout>
-      <NavigationLayout>{page}</NavigationLayout>
+      <NavigationLayout authContext={authContext}>{page}</NavigationLayout>
       {/* <Footer /> */}
 
     </Layout>

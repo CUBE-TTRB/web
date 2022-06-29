@@ -1,5 +1,5 @@
 import styles from './connectForm.module.scss'
-import { userConnect } from '../../../service/auth/connect';
+import AuthService from '../../../service/auth.service';
 
 
 
@@ -9,7 +9,9 @@ export default function connectForm({isActive, setFormsActive}) {
   function handleSubmit(element) {
     element.preventDefault();
     let thisForm = element.target;
-    console.log(thisForm.password.value)
+    console.log(thisForm)
+    AuthService.login(thisForm.email.value,thisForm.password.value)
+
 
     // const {data, error} = userConnect("/?results=6")
 
