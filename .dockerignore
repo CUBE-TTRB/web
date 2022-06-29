@@ -1,0 +1,16 @@
+# Git
+/.gitignore
+/.git
+# Node
+/node_modules
+
+# Docker
+/.dockerignore
+/docker-compose.yml
+/Dockerfile
+
+# Secrets
+*.env
+
+# Other
+/README.md

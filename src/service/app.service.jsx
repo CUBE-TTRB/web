@@ -7,11 +7,11 @@ let TOKEN = false ;
 
 
 function setToken(token){
-    this.TOKEN = token;
+    TOKEN = token;
 }
 
 function removeToken(){
-    this.TOKEN = false;
+    TOKEN = false;
 }
 
 const AppService = {URL , APP_NAME , setToken , TOKEN , removeToken}
