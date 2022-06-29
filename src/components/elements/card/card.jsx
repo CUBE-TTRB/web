@@ -2,15 +2,26 @@ import Image from 'next/image'
 import React from 'react'
 import styles from './card.module.scss'
 import Link from 'next/link'
+import UserService from '../../../service/user.service'
+import { useState, useEffect } from 'react'
+
 
 export default function card({link,title,icon,image,description,user,like,comment,tags}) {
+  const [cardUser, setcardUser] = useState("/images/defaultImage.png");
 
+  async() => {
+    let thisUser = await UserService.getUser(user);
+    console.log(thisUser)
+    setcardUser(thisUser.profilePicture && cardUser);
+  
+  }
+  
   let thisCard = (
     <article className={[ "card" , styles.card ].join(" ")} >
       <div className={styles.card__header}> 
         <a title={title}>{title}</a> 
         <Image         
-          src={"/icons/"+icon+".svg"}
+          src={"/icons/"+icon.name+".svg"}
           alt={"Picture of "+ icon}
           width={30}
           height={30}
@@ -18,7 +29,7 @@ export default function card({link,title,icon,image,description,user,like,commen
       </div>
       <div className={styles.card__image}>
         <Image         
-            src={image}
+            src={(image)? image: "/images/catalog-default-img.png"}
             alt="Picture of the author"
             width={1920}
             height={1080}
@@ -33,7 +44,7 @@ export default function card({link,title,icon,image,description,user,like,commen
       <div className={styles.card__infos}>
         <div className={styles.user}>
           <Image         
-              src={user.porfilePiture}
+              src={cardUser}
               alt="?"
               width={50}
               height={50}
@@ -90,3 +101,5 @@ export default function card({link,title,icon,image,description,user,like,commen
     return thisCard
   }
 }
+
+

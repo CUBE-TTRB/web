@@ -8,6 +8,10 @@ button {
     padding: 8px 15%;
     border-radius: 1000000px;
     text-align: center;
+    cursor: pointer;
+    &:hover {
+        filter: brightness(1.25);
+    }
 }
 
 button.green {

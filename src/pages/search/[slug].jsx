@@ -7,6 +7,12 @@ import Resources from '../../components/elements/resources/resources'
 import { AppContext } from '../../context/state';
 import { useContext } from 'react'
 import NoResult from '../../components/elements/noResult/noResult'
+import ResourceService from '../../service/resource.service'
+import Axios from 'axios'
+import AppService from '../../service/app.service'
+import UserService from '../../service/user.service'
+import { useAuth } from '../../context/auth'
+
 export default function searchSlug ({post}) {/*
     const router = useRouter()
     const { pid } = router.query*/
@@ -18,10 +24,10 @@ export default function searchSlug ({post}) {/*
     { name:"Professionel",id:4},
     { name:"Inconnus",id:5}
 ]
-const test2 = useContext(AppContext);
-console.log(test2)
+  const { isAuthenticated, user, loading, type } = useAuth();
 
 
+  // console.log(post)
     if(!post || post.length <= 0){
       return (
         <Resources>
@@ -36,12 +42,12 @@ console.log(test2)
     <Resources>
             {post.map(el => 
         <Card key={el.id} 
-          title="titleArticle" 
-          icon="" 
-          image="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
-          description="        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptatibus voluptatum cum reiciendis eveniet, rerum obcaecati necessitatibus aperiam neque maiores quasi ipsum mollitia. Animi nisi, consequatur sit asperna          " 
-          user={{"porfilePiture":"https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"}}
+          title={el.title}
+          icon={type[el.type]}
+          image={el.thumbnail}
+          description="" 
           like="" 
+          user={el.userId}
           comment="" 
           tags={tagsList}
           link={el.id}
@@ -59,9 +65,9 @@ console.log(test2)
 
 
 export async function getServerSideProps({params}) {
-    const post = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${params.slug}`).then(r => r.json())
-    console.log(`https://jsonplaceholder.typicode.com/posts?_limit=${params.slug}`)
-    console.log(post);
+ 
+    let post = await ResourceService.getRessource(true);
+
     return {
       props: {
           post

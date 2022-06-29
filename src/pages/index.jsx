@@ -7,12 +7,14 @@ import Footer from '../components/elements/footer/footer'
 import { useTheme } from 'next-themes'
 import { AppContext } from '../context/state';
 import { useContext } from 'react'
+import { useAuth } from '../context/auth'
+
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
 
-
-
+  const { isAuthenticated, user, loading } = useAuth();
+console.log(user)
   return (
     <>
       <Head>
@@ -21,7 +23,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
-
+{isAuthenticated?"connected":"not connect"}
         <HomePage />
       {/* <button onClick={() => setTheme('light')}>Light Mode</button>
       <button onClick={() => setTheme('dark')}>Dark Mode</button> */}

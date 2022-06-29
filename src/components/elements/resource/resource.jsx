@@ -1,6 +1,10 @@
 
 export default function resource() {
   return (
-    <div>resource</div>
+    <div>
+      <article className=".card">
+
+      </article>
+    </div>
   )
 }

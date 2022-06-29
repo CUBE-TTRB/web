@@ -2,28 +2,21 @@ import Axios from "axios";
 import AppService from './app.service'
 
 
-function getRessource(id, userId, visibility, state, type, categoryId, title, body, date, location){
-    Axios.post(AppService.URL + "ressource", {
-        "id": id, "userId": userId, "visibility": visibility, "state": state, 
-        "type": type, "categoryId": categoryId, "title": title, "body": body, 
-        "date": date, "location": location,
-    })
-    .then(async (res) => {
-        console.log(res)
+async function getRessource(withUser){
+    try{
+        let toReturn = (await Axios.get(AppService.URL + "resources" )).data.result;
 
-    
-    })
-    .catch((err) => {
-      console.log(err);
-      alert("Erreur : Aucune ressource");
-
-    });
-/*
-    window.localStorage.setItem('user', JSON.stringify(user));
-    window.localStorage.setItem('token', JSON.stringify(token));
-*/
+        return toReturn
+    }catch{ return []}
 }
 
+async function getSpecificRessource(id){
+    try{
+        let toReturn = (await Axios.get(AppService.URL + "resources/" + id)).data.result;
+
+        return toReturn
+    }catch{ return false}
+}
 
 const ResourceService = {getRessource}
 

@@ -1,6 +1,9 @@
 import Axios from "axios";
 import AppService from './app.service'
 
+
+let isAuth = false;
+
 function isWrongPath(token,path,truePath, falsePath) {
 
     if (window.location.pathname === path && token) {
@@ -15,26 +18,31 @@ function isInStock(){
     window.localStorage.getItem(AppService.APP_NAME+'_token');
 }
 
-function login(user , pwd){
+async function login(user , pwd){
+  try{
+    return (await Axios.post(AppService.URL + "sessions", { "email": user, "password": pwd } )).data.token
+}catch{ return false}
     Axios.post(AppService.URL + "sessions", { "email": user, "password": pwd })
-    .then(async (res) => {
+    .then( (res) => {
         console.log(res)
 
-      if (res.data.token) {
+      if (res.data.token) {/*
         window.localStorage.setItem(AppService.APP_NAME+'_token', res.data.token);
         window.localStorage.setItem(AppService.APP_NAME+'_user', "");
         window.location.href = "/";
-        AppService.setToken(res.data.token)
+        AppService.setToken((res.data.token)) ;*/
+        return res.data.token
       }
       else {
-        alert("Email ou Mot de passe invalide");
+        // alert("Email ou Mot de passe invalide");
+        return false
       }
     
     })
     .catch((err) => {
       console.log(err);
-      alert("Erreur : Email ou Mot de passe invalide");
-
+      // alert("Erreur : Email ou Mot de passe invalide");
+      return false;
     });
 /*
     window.localStorage.setItem('user', JSON.stringify(user));
@@ -42,11 +50,6 @@ function login(user , pwd){
 */
 }
 
-function logout(){
-    window.localStorage.removeItem('user');
-    window.localStorage.removeItem('token');
-
-}
 
 function register(name,email,lastName,bornedAt,pwd){
   Axios.post(AppService.URL + "users", { 
@@ -84,6 +87,6 @@ function forgetPwd(){
 
 }
 
-const AuthService = {isWrongPath , login , logout , register}
+const AuthService = {isWrongPath , login , register, isAuth}
 
 export default AuthService;

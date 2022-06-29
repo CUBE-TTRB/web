@@ -1,16 +1,20 @@
 import styles from './connectForm.module.scss'
 import AuthService from '../../../service/auth.service';
-
+import { useAuth } from '../../../context/auth';
 
 
 export default function connectForm({isActive, setFormsActive}) {
+  const { isAuthenticated, user, login, loading, logout} = useAuth();
 
 
-  function handleSubmit(element) {
+  async function handleSubmit(element) {
     element.preventDefault();
     let thisForm = element.target;
     console.log(thisForm)
-    AuthService.login(thisForm.email.value,thisForm.password.value)
+    console.log( login)
+    await login(thisForm.email.value,thisForm.password.value)
+    //AuthService.login(thisForm.email.value,thisForm.password.value)
+    
 
 
     // const {data, error} = userConnect("/?results=6")

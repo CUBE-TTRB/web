@@ -32,13 +32,6 @@ export default function auth() {
   };
 
 
-
-  useEffect(() => {
-    
-  }, [actives]);
-  
-
-
   return (
     <section className={styles.auth}>
         <div className={styles.auth__header}>

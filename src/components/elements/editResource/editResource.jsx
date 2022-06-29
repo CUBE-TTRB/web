@@ -40,7 +40,7 @@ export default function editResource() {
 
     const [ title, setTitle] = useState("Title");
     const [ resourceType, setResourceType] = useState(categList[0])
-    const [ image, setImage] = useState("https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    const [ image, setImage] = useState("image/catalog-default-img.png");
     const [ description, setDescription] = useState("Lorem Ipsum DOlor");
     const [ tags, setTags] = useState(tagsList);
     
