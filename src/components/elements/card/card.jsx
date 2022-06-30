@@ -12,7 +12,7 @@ export default function card({link,title,icon,image,description,user,like,commen
   async() => {
     let thisUser = await UserService.getUser(user);
     console.log(thisUser)
-    setcardUser(thisUser.profilePicture && cardUser);
+    setcardUser(thisUser.profilePicture ?? cardUser);
   
   }
   

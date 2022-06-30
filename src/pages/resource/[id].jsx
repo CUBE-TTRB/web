@@ -5,18 +5,18 @@ import NavigationLayout from "../../components/layout/navigationLayout"
 import ResourceService from "../../service/resource.service"
 
 
-export default function resourceId() {
+export default function resourceId({post}) {
   return (
     <>
-      <Resource />
+      <Resource post={post}/>
     </>
   )
 }
 
 export async function getServerSideProps({params}) {
- 
-  let post = await ResourceService.getRessource(true);
-
+ console.log(params)
+  let post = await ResourceService.getSpecificRessource(params.id);
+console.log(post)
   return {
     props: {
         post

@@ -67,7 +67,7 @@ export default function searchSlug ({post}) {/*
 export async function getServerSideProps({params}) {
  
     let post = await ResourceService.getRessource(true);
-
+    
     return {
       props: {
           post

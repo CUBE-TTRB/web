@@ -11,7 +11,7 @@ function setUser(user){
 async function getUser(id){
     try{
         return (await Axios.get(AppService.URL + "users/"+ id )).data.result
-    }catch{ return []}
+    }catch{ return false}
 }
 
 

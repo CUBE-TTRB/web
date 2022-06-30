@@ -18,6 +18,6 @@ async function getSpecificRessource(id){
     }catch{ return false}
 }
 
-const ResourceService = {getRessource}
+const ResourceService = {getRessource,getSpecificRessource}
 
 export default ResourceService;
