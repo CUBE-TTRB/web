@@ -34,10 +34,9 @@ console.log(user)
 }
 
 Home.getLayout = function getLayout(page) {
-  const authContext = useContext(AppContext);
   return (
     <Layout>
-      <NavigationLayout authContext={authContext}>{page}</NavigationLayout>
+      <NavigationLayout>{page}</NavigationLayout>
       {/* <Footer /> */}
 
     </Layout>

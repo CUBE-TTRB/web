@@ -4,8 +4,10 @@ import AppService from './app.service'
 
 async function getRessource(withUser){
     try{
+        console.log("brefore")
         let toReturn = (await Axios.get(AppService.URL + "resources" )).data.result;
-
+        console.log("toReturn",toReturn)
+        console.log("AFTER")
         return toReturn
     }catch{ return []}
 }

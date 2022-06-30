@@ -1,18 +1,22 @@
 import styles from './connectForm.module.scss'
 import AuthService from '../../../service/auth.service';
 import { useAuth } from '../../../context/auth';
+import { useRouter } from 'next/router';
 
 
 export default function connectForm({isActive, setFormsActive}) {
   const { isAuthenticated, user, login, loading, logout} = useAuth();
-
+  console.log(useAuth())
+  const router = useRouter()
 
   async function handleSubmit(element) {
     element.preventDefault();
     let thisForm = element.target;
     console.log(thisForm)
     console.log( login)
-    await login(thisForm.email.value,thisForm.password.value)
+    
+    let redirect = await login(thisForm.email.value,thisForm.password.value)
+    redirect ? router.push("/") : alert('Identifiant ou mot de passe incorrect')
     //AuthService.login(thisForm.email.value,thisForm.password.value)
     
 

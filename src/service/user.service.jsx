@@ -14,7 +14,13 @@ async function getUser(id){
     }catch{ return false}
 }
 
+async function getUsers(){
+    try{
+        return (await Axios.get(AppService.URL + "users/" )).data.result
+    }catch{ return false}
+}
 
-const UserService = {getUser, setUser, USER}
+
+const UserService = {getUser, setUser, USER, getUsers}
 
 export default UserService;

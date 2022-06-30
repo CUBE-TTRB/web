@@ -46,16 +46,14 @@ export const AuthProvider = ({ children }) => {
             const userId = AppService.parseJwt(_data_token).id
             const _data_user = await UserService.getUser(userId)
             if (_data_user) {setUser(_data_user);return true};
-            console.log("Got user", _data_user)
-            
+            return false;
         }
     }
 
     const logout = (email, password) => {
         Cookies.remove('token')
         setUser(null)
-        const router = useRouter()
-        router.push('/auth')
+        return true;
     }
 
 

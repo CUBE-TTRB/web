@@ -5,12 +5,13 @@ import MenuSideBar from '../elements/menuSideBar/menuSideBar'
 import AccountSideBar from '../elements/accountSideBar/accountSideBar'
 import { AppContext } from '../../context/state';
 import { useContext,useState } from "react"
-
+import { useAuth } from '../../context/auth'
 
 export default function navigationLayout({children, authContext}) {
 
-  const teste = useContext(AppContext);
-  console.log(teste)
+  const { isAuthenticated, user, login, loading, logout} = useAuth();
+  console.log("aaaa",isAuthenticated)
+
   const [sidebarMenu, setSidebarMenu] = useState(false);
   const [sidebarProfil, setSidebarProfil] = useState(false);
   const handleSidebarMenu = () => {setSidebarMenu(!sidebarMenu)};
@@ -27,11 +28,13 @@ export default function navigationLayout({children, authContext}) {
       handleSidebarMenu={handleSidebarMenu} 
       active={sidebarMenu}
     /> 
-    
+    {isAuthenticated || true ? (
     <AccountSideBar 
       handleSidebarMenu={handleSidebarProfil} 
       active={sidebarProfil}
     /> 
+    ):""}
+    
     <main>{children}</main>
     </>
     

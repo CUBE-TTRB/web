@@ -1,0 +1,51 @@
+@use '/src/styles/abstract/' as g;
+@use '/src/styles/base/' as b;
+
+
+.page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    .user {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 2em;
+        &__image {
+            border-radius: 200%;
+            margin: 5px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            img {
+                width: 50px ;
+                height: 50px ;
+                border-radius: 100%;
+
+            }
+            &___id {
+                margin: 0 10px;
+            }
+        }
+        &__comment {
+            font-size: .75em;
+            text-align: left;
+            width: 100%;
+        }
+    }
+    hr {
+        width: 95%;
+        height: 1px;
+        background: g.$gray-light-extra;
+    }
+
+}

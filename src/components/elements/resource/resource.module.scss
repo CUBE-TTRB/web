@@ -5,13 +5,16 @@
 .page {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 20px;
     font-family: b.$nav-title-font;
     font-style: b.$nav-title-font;
     flex-wrap: wrap;
     margin: 10px auto;
     max-width: 1000px;
+    @media (max-width:930px){
+        justify-content: center;
+    }
 
     .resource {
         min-height: 510px;
@@ -22,6 +25,22 @@
         align-items: flex-start;
         justify-content: flex-start;
         padding: 2em;
+
+        &__title {
+            color: g.$nav-title-color;
+            font-size: 1.5em;
+            position: relative;
+
+            &::after {
+                content: '';
+                top:5%;
+                left:-5px;
+                position: absolute;
+                height: 90%;
+                width: 3px;
+                background-color: g.$green-3;
+            }
+        }
     }
 
     .user {
@@ -72,6 +91,26 @@
             text-align: left;
             width: 100%;
             overflow-x: hidden;
+        }
+    }
+
+    .comment {
+        width: 610px;
+        font-size: 1em;
+
+        &__list {
+            width: 100%;
+        }
+
+        &__input {
+            margin-top: 10px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            font-size: .75em;
+            
         }
     }
 }

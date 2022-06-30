@@ -3,9 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { AppContext } from '../../../context/state'
 import { useContext } from 'react'
+import { useAuth } from '../../../context/auth'
+export default function header({handleSidebarMenu,handleSidebarProfil}) {
+ 
+  const { isAuthenticated, user, login, loading, logout} = useAuth();
 
-export default function header({handleSidebarMenu}) {
-  const isAuth = useContext(AppContext);
+
+  console.log("auth",useAuth())
 
   return (
     <header className={styles.header}>
@@ -20,8 +24,14 @@ export default function header({handleSidebarMenu}) {
         </label>
       </div>
       <div className={styles.account}>    
-      
-      <Link href="/auth"><img className={styles.account__icon} src="/icons/icon_account.svg" alt="" /></Link>
+      {
+        isAuthenticated ? (
+          <a href="">AAAA<img onClick={handleSidebarProfil} className={styles.account__icon} src="/icons/icon_account.svg" alt="" /></a>
+        ):(
+          <Link href="/auth"><img className={styles.account__icon} src="/icons/icon_account.svg" alt="" /></Link>
+
+        )
+      }
       </div>
     </header>
   )

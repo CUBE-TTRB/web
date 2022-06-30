@@ -3,23 +3,27 @@ import Resource from "../../components/elements/resource/resource"
 import Layout from "../../components/layout/layout"
 import NavigationLayout from "../../components/layout/navigationLayout"
 import ResourceService from "../../service/resource.service"
+import UserService from "../../service/user.service"
 
 
-export default function resourceId({post}) {
+export default function resourceId({post,user,commentUser}) {
   return (
     <>
-      <Resource post={post}/>
+      <Resource post={post} user={user} commentUser={commentUser}/>
     </>
   )
 }
 
 export async function getServerSideProps({params}) {
- console.log(params)
   let post = await ResourceService.getSpecificRessource(params.id);
-console.log(post)
+  let user = await UserService.getUser(post.userId);
+  let commentUser = await UserService.getUsers();
+
   return {
     props: {
-        post
+        post,
+        user,
+        commentUser
     }, // will be passed to the page component as props
   }
 }
