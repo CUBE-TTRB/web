@@ -20,6 +20,23 @@ async function getSpecificRessource(id){
     }catch{ return false}
 }
 
-const ResourceService = {getRessource,getSpecificRessource}
+
+async function createRessource(type, visibility, title, body, categoryId, token){
+    try{
+        let toReturn = (await Axios.post(AppService.URL + "resources",{
+             "resource": { 
+                 "type":type, 
+                 "visibility":(visibility)?"PUBLIC":"PRIVATE", 
+                 "title":title, 
+                 "body":body, 
+                 "categoryId":1 }, 
+             "token" : token
+        })).data.result;
+
+        return toReturn
+    }catch{ return false}
+}
+
+const ResourceService = {getRessource,getSpecificRessource,createRessource}
 
 export default ResourceService;

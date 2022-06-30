@@ -1,8 +1,10 @@
 import { useQuill } from 'react-quilljs';
 import 'quill/dist/quill.snow.css';
 import styles from './quillEditor.module.scss'
-export default function quillEditor(className) {
+import { useEffect } from 'react';
+export default function quillEditor({setter,className}) {
     console.log(className)
+
     const { quill, quillRef } = useQuill({
         modules: {
           toolbar: {
@@ -10,8 +12,22 @@ export default function quillEditor(className) {
           }
         }
       });
+
+      if(setter){
+        useEffect(() => {
+          if (quill) {
+            quill.on('text-change', (delta, oldDelta, source) => {
+              let content = quill.getContents();
+              // console.log(content.ops.length); 
+              console.log(content.ops)
+              setter(content.ops);
+            });
+          }
+        }, [quill]);
+      }
+
   return (
-    <div className={className.className}>
+    <div className={className}>
           <div id="toolbar" className={styles.toolbar}>
             <select class="ql-size">
                 <option value="small"></option>

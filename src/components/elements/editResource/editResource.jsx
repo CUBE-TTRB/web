@@ -3,9 +3,12 @@ import styles from './editResource.module.scss'
 import Card from '../card/card';
 import { useEffect,useState,useRef } from 'react';
 import QuillEditor from '../quillEditor/quillEditor';
+import ResourceService from '../../../service/resource.service';
+import { useAuth } from '../../../context/auth';
 export default function editResource() {
 
-
+  const { isAuthenticated, user, login, loading, logout, type, AUTHTOKEN} = useAuth();
+  console.log(useAuth(), AUTHTOKEN)
 
 
   const { quill, quillRef } = useQuill({
@@ -40,14 +43,17 @@ export default function editResource() {
 
     const [ title, setTitle] = useState("Title");
     const [ resourceType, setResourceType] = useState(categList[0])
-    const [ image, setImage] = useState("image/catalog-default-img.png");
+    const [ image, setImage] = useState("/images/catalog-default-img.png");
     const [ description, setDescription] = useState("Lorem Ipsum DOlor");
     const [ tags, setTags] = useState(tagsList);
+    const [ body, setBody] = useState(null);
+    const [ visibility, setVisibility ] = useState(true);
     
     useEffect(() => {
         if (quill) {
           quill.on('text-change', (delta, oldDelta, source) => {
             let content = quill.getContents();
+
             // console.log(content.ops.length); 
             setImage(content.ops[(content.ops.length -2)].insert.image)
           });
@@ -61,13 +67,26 @@ export default function editResource() {
 
 
     let titleRef = useRef() , titleUpdate = () => {setTitle(titleRef.current.value)};
-    let categRef = useRef(), categUpdate = () => {setResourceType(categList.find(el => el.id == categRef.current.value))};
+    let categRef = useRef(), categUpdate = () => {setResourceType(type[categRef.current.value])};
     let descRef = useRef(), descUpdate = () => {setDescription(descRef.current.value)};
     let tagsRef = useRef() , tagsUpdate = () => { 
       setTags(
         ([...tagsRef.current.childNodes].slice(1).map(el => {if (el.children.tags.checked){return tagsList.find(tag => tag.id == el.children.tags.id)}})).filter(n => n)
       )
     };
+
+    async function handlerSubmit(e){
+      e.preventDefault();
+      if(title?.length >0 && description?.length >0 && tags?.length >0 && body?.length > 0){
+        console.log(body)
+        console.log(JSON.stringify(body))
+
+        const res = await ResourceService.createRessource(type, visibility, title, body, 1, AUTHTOKEN);
+        alert(res)
+      }else {
+        alert("vide")
+      }
+    }
 
 
   return (
@@ -77,7 +96,7 @@ export default function editResource() {
         icon={resourceType.name}
         image={image}
         description={description}
-        user={{ "porfilePiture": "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" }}
+        user={null}
         like={0}
         comment={0}
         tags={tags}
@@ -91,9 +110,9 @@ export default function editResource() {
         
         <label htmlFor="categ">Catégorie :</label>
         <select onChange={categUpdate} ref={categRef} placeholder='Catégorie' id="categ" name="categ" required>
-          { categList.map(el => {
+          { Object.keys(type).map(el => {
             return (
-              <option onChange={()=>{}} key={el.id} value={el.id} readOnly>{el.name}</option>
+              <option onChange={()=>{}} key={el} value={el} readOnly>{type[el].name}</option>
             )
           })}
         </select>
@@ -116,13 +135,14 @@ export default function editResource() {
               })
             }
           </fieldset>
+          <div><label className={styles.visibility} htmlFor="visibility">Ressource Privée <input onClick={()=>setVisibility(!visibility)} defaultValue={visibility} id="visibility" name="visibility" type="checkbox" /></label></div>
       </div>
 
       
 
 
     
-        <QuillEditor className={[ "card" , styles.quillResource ].join(" ")}/>
+        <QuillEditor setter={setBody} className={[ "card" , styles.quillResource ].join(" ")}/>
 
       
 
@@ -138,8 +158,8 @@ export default function editResource() {
           </div>
         </div>
       </div>
-
-
+            
+            <button onClick={handlerSubmit}>Créer la ressource</button>
     </div>
   )
 }

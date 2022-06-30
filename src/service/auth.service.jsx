@@ -64,6 +64,7 @@ function register(name,email,lastName,bornedAt,pwd){
     } 
   }).then(async (res) => {
       console.log(res)
+      return true;
 /*
     if (res.data.token) {
       window.localStorage.setItem(AppService.APP_NAME+'_token', res.data.token);
@@ -79,6 +80,7 @@ function register(name,email,lastName,bornedAt,pwd){
   .catch((err) => {
     console.log(err);
     alert("Erreur : Email ou Mot de passe invalide");
+    return false
 
   });
 }

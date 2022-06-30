@@ -7,10 +7,18 @@ import { useRouter } from 'next/router'
 import { useAuth } from "../../../context/auth";
 
 export default function EditId() {
-  const { isAuthenticated, user, loading } = useAuth();
+  const { isAuthenticated, user, login, loading, logout, type, AUTHTOKEN} = useAuth();
+  console.log(useAuth())
+  console.log("ABC")
+  return (
+    <div>
+      <EditResource />
+    </div>)
+
+  console.log(isAuthenticated)
   const router = useRouter();
   useEffect(() => {
-    if(!(isAuthenticated))router.push("/");
+    if(isAuthenticated == false)router.push("/");
   }, [])
   if(isAuthenticated){
     return (
@@ -30,3 +38,18 @@ EditId.getLayout = function getLayout(page) {
       </Layout>
     )
   }
+
+/*
+  export async function getServerSideProps({params}) {
+    // let post = await ResourceService.getSpecificRessource(params.id);
+    // let user = await UserService.getUser(post.userId);
+    // let commentUser = await UserService.getUsers();
+  
+    return {
+      props: {
+          post,
+          user,
+          commentUser
+      }, // will be passed to the page component as props
+    }
+  }*/

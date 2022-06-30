@@ -18,6 +18,8 @@ const type = {
     "VIDEO": { name:"Video",id:3}
   }
 
+const AUTHTOKEN = null;
+
 export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
@@ -30,7 +32,7 @@ export const AuthProvider = ({ children }) => {
                 console.log("Got a token in the cookies, let's see if it is valid")
                 let userId = AppService.parseJwt(token).id
                 const _data_user = await UserService.getUser(userId)
-                if (_data_user) setUser(_data_user);
+                if (_data_user) {setUser(_data_user);AUTHTOKEN = token}
             }
             setLoading(false)
         }
@@ -45,7 +47,7 @@ export const AuthProvider = ({ children }) => {
             Cookies.set('token', _data_token, { expires: 60 })
             const userId = AppService.parseJwt(_data_token).id
             const _data_user = await UserService.getUser(userId)
-            if (_data_user) {setUser(_data_user);return true};
+            if (_data_user) {setUser(_data_user);AUTHTOKEN = _data_token; return true};
             return false;
         }
     }
@@ -53,6 +55,7 @@ export const AuthProvider = ({ children }) => {
     const logout = (email, password) => {
         Cookies.remove('token')
         setUser(null)
+        AUTHTOKEN = null;
         return true;
     }
 
@@ -64,7 +67,7 @@ export const AuthProvider = ({ children }) => {
 
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated: !!user, user, login, loading, logout, type }}>
+        <AuthContext.Provider value={{ isAuthenticated: !!user, user, login, loading, logout, type, AUTHTOKEN }}>
             {children}
         </AuthContext.Provider>
     )

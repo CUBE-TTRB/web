@@ -45,6 +45,15 @@
         text-align: center;
         vertical-align: middle;
         margin: 10px 0;
+        img {
+            width: unset !important;
+            height: unset !important;
+            max-height: unset !important;
+            // min-width: none !important;
+            // max-width: none !important;
+            // min-height: none !important;
+            // max-height: none !important;
+        }
     }
 
     &__description {
