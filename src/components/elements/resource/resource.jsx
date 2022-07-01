@@ -23,6 +23,9 @@ console.log(post.comment)
   async function handlerComment(){
     console.log(inputRef.current.value)
     let res = await ResourceService.commentRessource(post.id,inputRef.current.value,Cookies.get('token'))
+    if(res){
+      console.log(res)
+    }
   }
 
   return (

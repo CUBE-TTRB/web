@@ -25,34 +25,34 @@ export default function userProfile({user}) {
                 </div>
             </div>
             <span className={styles.user__name}>
-                USER NUMBER1
+                {user.name} {user.lastName}
             </span>
-            <p className={styles.user__description}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum inventore provident voluptas dolor impedit. In, alias vel quia totam, sequi praesentium cum deserunt, iste debitis adipisci quo eaque accusantium distinctio.
+            <p className={styles.user__description}>Aucune descritpion
             </p>
         </div>
         <form className={["card",styles.cardInfo].join(" ")}>
             <div className={styles.col}>
                 <div className={styles.email}>
                     <label htmlFor="email">Email :</label>
-                    <input value="test" placeholder='Email' id="email" name="email" type="email" autoComplete="email" required />
+                    <input defaultValue={user.email} placeholder='Email' id="email" name="email" type="email" autoComplete="email" required />
                 </div>
                 <div className={styles.name}>
                     <label htmlFor="name">Nom :</label>
-                    <input value="test" placeholder='Nom' id="name" name="name" type="text" required />
+                    <input defaultValue={user.name} placeholder='Nom' id="name" name="name" type="text" required />
                 </div>
                 <div className={styles.firstName}>
                     <label htmlFor="firstName">Prénom :</label>
-                    <input value="test" placeholder='Prenom' id="firstName" name="firstName" type="text" required />
+                    <input defaultValue={user.lastName} placeholder='Prenom' id="firstName" name="firstName" type="text" required />
                 </div>
             </div>
             <div className={styles.col}>
                 <div className={styles.age}>
                     <label htmlFor="age">Date de naissance :</label>
-                    <input defaultValue={"test"} placeholder='Prenom' id="age" name="age" type="date" required />
+                    <input defaultValue={(user.bornedAt.split('T'))[0]} placeholder='Prenom' id="age" name="age" type="date" required />
                 </div>
                 <div className={styles.description}>
                     <label htmlFor="firstName">Description :</label>
-                    <input defaultValue={"test"} placeholder='Prenom' id="firstName" name="firstName" type="text" required />
+                    <input defaultValue={"Aucune descritpion"} placeholder='Prenom' id="firstName" name="firstName" type="text" required />
                 </div>
                 <label htmlFor="submit"> </label>
                 <button type="submit">Enregistrer</button>
@@ -88,7 +88,7 @@ export default function userProfile({user}) {
                         />
                     </div>
                     <span className={styles.stat__number}>
-                        11
+                        0
                     </span>
                     <span className={styles.stat__lore}>
                         Nombre de <br /> ressources
@@ -105,7 +105,7 @@ export default function userProfile({user}) {
                         />
                     </div>
                     <span className={styles.stat__number}>
-                        11
+                        0
                     </span>
                     <span className={styles.stat__lore}>
                         Vues sur <br /> ressources
@@ -122,7 +122,7 @@ export default function userProfile({user}) {
                         />
                     </div>
                     <span className={styles.stat__number}>
-                        11
+                        0
                     </span>
                     <span className={styles.stat__lore}>
                         Nombre de <br /> favoris
@@ -139,7 +139,7 @@ export default function userProfile({user}) {
                         />
                     </div>
                     <span className={styles.stat__number}>
-                        11
+                        0
                     </span>
                     <span className={styles.stat__lore}>
                         Nombre de <br /> commentaires

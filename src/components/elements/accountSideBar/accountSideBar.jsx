@@ -4,7 +4,7 @@ import Nav_link from '../nav_link/nav_link'
 import Cookies from 'js-cookie'
 import { useState, useEffect } from 'react'
 import UserService from '../../../service/user.service'
-
+import AuthService from '../../../service/auth.service'
 
 export default function accountSideBar({handleSidebarProfil , active}) {
 
@@ -23,7 +23,9 @@ export default function accountSideBar({handleSidebarProfil , active}) {
   }, [])
   
 
-
+  function handlerDeco(){
+    AuthService.logout;
+  }
   return (
     <nav className={[styles.sideBar, (active?styles.sideBar__active:styles.sideBar__unactive)].join(" ")}>
     <div className={styles.header}>
@@ -35,6 +37,7 @@ export default function accountSideBar({handleSidebarProfil , active}) {
     <div className={styles.navigation}>
       <ul>
         <Nav_link name="Profil" link="/profile" event={handleSidebarProfil} />
+        <Nav_link onClick={handlerDeco} name="Se déconnecter" link="/" event={handleSidebarProfil} />
       </ul>  
     </div>
 </nav>

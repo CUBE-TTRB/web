@@ -1,6 +1,6 @@
 import Axios from "axios";
 import AppService from './app.service'
-
+import Cookies from 'js-cookie'
 
 let isAuth = false;
 
@@ -89,6 +89,13 @@ function forgetPwd(){
 
 }
 
-const AuthService = {isWrongPath , login , register, isAuth}
+const logout = (email, password) => {
+  Cookies.remove('token')
+  Cookies.remove('user')
+  location.reload();
+  return true;
+}
+
+const AuthService = {isWrongPath , login , register, isAuth, logout}
 
 export default AuthService;
