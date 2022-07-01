@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import { useState, useEffect } from 'react'
 import UserService from '../../../service/user.service'
 import AuthService from '../../../service/auth.service'
-
+import Router from 'next/router'
 export default function accountSideBar({handleSidebarProfil , active}) {
 
   const [user, setUser] = useState({
@@ -24,7 +24,9 @@ export default function accountSideBar({handleSidebarProfil , active}) {
   
 
   function handlerDeco(){
-    AuthService.logout;
+    Cookies.remove('token')
+    Cookies.remove('user')
+    Router.push("/")
   }
   return (
     <nav className={[styles.sideBar, (active?styles.sideBar__active:styles.sideBar__unactive)].join(" ")}>
@@ -37,7 +39,7 @@ export default function accountSideBar({handleSidebarProfil , active}) {
     <div className={styles.navigation}>
       <ul>
         <Nav_link name="Profil" link="/profile" event={handleSidebarProfil} />
-        <Nav_link onClick={handlerDeco} name="Se déconnecter" link="/" event={handleSidebarProfil} />
+        <Nav_link name="Se déconnecter" link="/" event={handlerDeco} />
       </ul>  
     </div>
 </nav>

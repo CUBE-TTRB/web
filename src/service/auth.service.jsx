@@ -89,10 +89,11 @@ function forgetPwd(){
 
 }
 
-const logout = (email, password) => {
+const logout = () => {
   Cookies.remove('token')
   Cookies.remove('user')
-  location.reload();
+  location.reload(true);
+  window.location.href = "/"
   return true;
 }
 

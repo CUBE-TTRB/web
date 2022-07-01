@@ -24,7 +24,6 @@ console.log(user)
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
-{isAuthenticated?"connected":"not connect"}
         <HomePage />
       {/* <button onClick={() => setTheme('light')}>Light Mode</button>
       <button onClick={() => setTheme('dark')}>Dark Mode</button> */}
