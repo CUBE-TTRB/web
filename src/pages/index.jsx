@@ -13,7 +13,8 @@ import { useAuth } from '../context/auth'
 export default function Home() {
   const { theme, setTheme } = useTheme();
 
-  const { isAuthenticated, user, loading } = useAuth();
+  const { isAuthenticated, user, login, loading, logout, type, AUTHTOKEN} = useAuth();
+
 console.log(user)
   return (
     <>

@@ -1,23 +1,29 @@
 import styles from "./resource.module.scss"
-import { useState,useEffect } from "react";
+import { useState,useEffect,useRef } from "react";
 import Image from "next/image";
 import UserService from "../../../service/user.service";
 import Comment from "../comment/comment";
-
 import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html'
+import ResourceService from "../../../service/resource.service";
+import Cookies from 'js-cookie'
+
 
 export default function resource({post,user,commentUser}) {
 
   const [cardUser, setcardUser] = useState(user);
 
-
 console.log(post.comment)
   let cfg = {};
 
-  let converter = new QuillDeltaToHtmlConverter(post.body[0], cfg);
+  let converter = new QuillDeltaToHtmlConverter(post.body, cfg);
 
   let resourceHtml = converter.convert(); 
 
+  const inputRef = useRef();
+  async function handlerComment(){
+    console.log(inputRef.current.value)
+    let res = await ResourceService.commentRessource(post.id,inputRef.current.value,Cookies.get('token'))
+  }
 
   return (
     <div className={styles.page}>
@@ -61,8 +67,8 @@ console.log(post.comment)
         </ul>
         <div className={styles.comment__input}>
           <label htmlFor="">Commenter :</label>
-          <input type="text" />
-          <button>Commenter</button>
+          <input ref={inputRef} type="text" />
+          <button onClick={handlerComment}>Commenter</button>
         </div>
       </div>
     </div>

@@ -32,7 +32,12 @@ export const AuthProvider = ({ children }) => {
                 console.log("Got a token in the cookies, let's see if it is valid")
                 let userId = AppService.parseJwt(token).id
                 const _data_user = await UserService.getUser(userId)
-                if (_data_user) {setUser(_data_user);AUTHTOKEN = token}
+                if (_data_user) {
+                    setUser(_data_user);
+                    const existe = Cookies.get('user')
+                    if(existe){Cookies.remove('user')}
+                    Cookies.set('user', _data_user.id, { expires: 60 });
+                    AUTHTOKEN = token}
             }
             setLoading(false)
         }
@@ -44,16 +49,17 @@ export const AuthProvider = ({ children }) => {
         if (_data_token) {
             console.log("Got token")
             console.log(_data_token)
-            Cookies.set('token', _data_token, { expires: 60 })
+            Cookies.set('token', _data_token, { expires: 60 });
             const userId = AppService.parseJwt(_data_token).id
             const _data_user = await UserService.getUser(userId)
-            if (_data_user) {setUser(_data_user);AUTHTOKEN = _data_token; return true};
+            if (_data_user) {setUser(_data_user);Cookies.set('user', _data_user.id, { expires: 60 });AUTHTOKEN = _data_token; return true};
             return false;
         }
     }
 
     const logout = (email, password) => {
         Cookies.remove('token')
+        Cookies.remove('user')
         setUser(null)
         AUTHTOKEN = null;
         return true;

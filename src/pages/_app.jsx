@@ -5,11 +5,13 @@ import { useContext, useEffect } from 'react';
 import { ThemeProvider } from 'next-themes'
 import { AuthProvider } from '../context/auth';
 import { ProtectRoute } from '../context/auth';
+import { useAuth } from '../context/auth';
 // import { AppWrapper } from '../context/state';
 
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
+
 
   return getLayout(    
     // <AppWrapper>

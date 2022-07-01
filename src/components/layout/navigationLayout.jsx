@@ -5,17 +5,18 @@ import MenuSideBar from '../elements/menuSideBar/menuSideBar'
 import AccountSideBar from '../elements/accountSideBar/accountSideBar'
 import { AppContext } from '../../context/state';
 import { useContext,useState } from "react"
-import { useAuth } from '../../context/auth'
+import Cookies from 'js-cookie'
 
-export default function navigationLayout({children, authContext}) {
+export default function navigationLayout({children, useAuth}) {
 
-  const { isAuthenticated, user, login, loading, logout} = useAuth();
-  console.log("aaaa",isAuthenticated)
+  //const { isAuthenticated, user, login, loading, logout, type, AUTHTOKEN} = useAuth();
+  const token = Cookies.get('token');
+  console.log("aaaa",useAuth)
 
   const [sidebarMenu, setSidebarMenu] = useState(false);
   const [sidebarProfil, setSidebarProfil] = useState(false);
   const handleSidebarMenu = () => {setSidebarMenu(!sidebarMenu)};
-  const handleSidebarProfil = () => {setSidebarMenu(!sidebarProfil)};
+  const handleSidebarProfil = () => {setSidebarProfil(!sidebarProfil)};
 
 
   return (
@@ -28,9 +29,9 @@ export default function navigationLayout({children, authContext}) {
       handleSidebarMenu={handleSidebarMenu} 
       active={sidebarMenu}
     /> 
-    {isAuthenticated || true ? (
+    {token ? (
     <AccountSideBar 
-      handleSidebarMenu={handleSidebarProfil} 
+      handleSidebarProfil={handleSidebarProfil} 
       active={sidebarProfil}
     /> 
     ):""}

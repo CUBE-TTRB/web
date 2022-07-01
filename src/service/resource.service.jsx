@@ -37,6 +37,21 @@ async function createRessource(type, visibility, title, body, categoryId, token)
     }catch{ return false}
 }
 
-const ResourceService = {getRessource,getSpecificRessource,createRessource}
+async function commentRessource(id, text, token){
+    try{
+        let toReturn = (await Axios.post(AppService.URL + "comments",{ 
+            "comment": { 
+                "resourceId":id, 
+                "text" :text
+            }, 
+            "token" : token 
+        }
+        )).data.result;
+
+        return toReturn
+    }catch{ return false}
+}
+
+const ResourceService = {getRessource,getSpecificRessource,createRessource,commentRessource}
 
 export default ResourceService;

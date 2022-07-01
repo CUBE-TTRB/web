@@ -37,7 +37,7 @@ $sidebarW : 270px;
     "."
     "."; 
 
-  transition: left .5s ease-in-out;
+  transition: right .5s ease-in-out;
   &__active {
     right:0;
     
@@ -63,6 +63,7 @@ $sidebarW : 270px;
 
         &__logo {
           height: 70%;
+          border-radius: 100%;
         }
 
         &__close {
@@ -77,7 +78,7 @@ $sidebarW : 270px;
         overflow-y: scroll;
         overflow-x: hidden;
         background-color: g.$background-color;
-        box-shadow: 1px 0 2px g.$light-shadow;
+        box-shadow: -1px 0 2px g.$light-shadow;
 
         ul {
             padding: 5%;

@@ -4,13 +4,10 @@ import Link from 'next/link'
 import { AppContext } from '../../../context/state'
 import { useContext } from 'react'
 import { useAuth } from '../../../context/auth'
+import Cookies from 'js-cookie'
 export default function header({handleSidebarMenu,handleSidebarProfil}) {
  
-  const { isAuthenticated, user, login, loading, logout} = useAuth();
-
-
-  console.log("auth",useAuth())
-
+  const token = Cookies.get('token');
   return (
     <header className={styles.header}>
       <div className={styles.menu}>    
@@ -25,8 +22,8 @@ export default function header({handleSidebarMenu,handleSidebarProfil}) {
       </div>
       <div className={styles.account}>    
       {
-        isAuthenticated ? (
-          <a href="">AAAA<img onClick={handleSidebarProfil} className={styles.account__icon} src="/icons/icon_account.svg" alt="" /></a>
+        token ? (
+          <img onClick={handleSidebarProfil} className={styles.account__icon} src="/icons/icon_account.svg" alt="" />
         ):(
           <Link href="/auth"><img className={styles.account__icon} src="/icons/icon_account.svg" alt="" /></Link>
 

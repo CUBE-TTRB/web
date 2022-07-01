@@ -8,7 +8,7 @@ import { useAuth } from '../../../context/auth';
 export default function editResource() {
 
   const { isAuthenticated, user, login, loading, logout, type, AUTHTOKEN} = useAuth();
-  console.log(useAuth(), AUTHTOKEN)
+  console.log(useAuth(), "e",AUTHTOKEN)
 
 
   const { quill, quillRef } = useQuill({

@@ -1,14 +1,14 @@
 import styles from './userProfile.module.scss'
 import Image from 'next/image'
 
-export default function userProfile() {
-    let test = "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+export default function userProfile({user}) {
+    
   return (
     <div className={styles.page}>
         <div className={["userCard",styles.user].join(" ")}>
             <div className={styles.user__background}>
                 <Image         
-                src={test}
+                src={user.bakckgroundImage ?? "/images/defaultImage.png"}
                 alt="Picture of the author"
                 width={300}
                 height={100}
@@ -17,7 +17,7 @@ export default function userProfile() {
             <div className={styles.user__profile}>
                 <div className={styles.user__profile___image}>
                 <Image         
-                src={test}
+                src={user.profilePicture ?? "/images/defaultBackgroundImage.jpeg"}
                 alt="Picture of the author"
                 width={100}
                 height={100}
